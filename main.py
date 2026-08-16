@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from src.classes_create import Category, Product
 from src.read_products_json import get_data_json, product_by_categories
 
@@ -56,7 +58,12 @@ if __name__ == "__main__":
     # print(Category.category_count)
     # print(Category.product_count)
 
-    list_of_data = get_data_json("../data/products.json")
+    path_0 = str(Path.cwd())[-6:]
+    if path_0 == "\\tests":
+        path_1 = "../data/products.json"
+    else:
+        path_1 = "data/products.json"
+    list_of_data = get_data_json(path_1)
     print(f"{list_of_data}\n")
     products_in = product_by_categories(list_of_data)
     print(products_in)

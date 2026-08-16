@@ -1,8 +1,4 @@
-import os
-from logging import root
-from os import path
 from pathlib import Path
-from unittest import __dir__
 
 from src.read_products_json import get_data_json, product_by_categories
 
