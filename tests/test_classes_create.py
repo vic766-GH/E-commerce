@@ -1,3 +1,9 @@
+import os
+from logging import root
+from os import path
+from pathlib import Path
+from unittest import __dir__
+
 from src.read_products_json import get_data_json, product_by_categories
 
 
@@ -23,7 +29,12 @@ def test_category_init_1(category_true_1):
 
 # Тестирование получения списка словарей товаров по категориям из json-файла
 def test_get_data_json():
-    in_json = get_data_json("./data/products.json")
+    path_0 = str(Path.cwd())[-6:]
+    if path_0 == "\\tests":
+        path_1 = "../data/products.json"
+    else:
+        path_1 = "data/products.json"
+    in_json = get_data_json(path_1)
     category_quantity = len(in_json)
     assert category_quantity == 2
 
